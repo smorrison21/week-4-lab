@@ -59,7 +59,16 @@ def my_func(x):
     return equation
 
 iris['petal_width_new'] = iris['petal_width'] / 1.199333
+iris['petal_length_new'] = iris['petal_length'] /  3.758
+iris['sepal_length_new'] = iris['sepal_length'] /  5.843333
+iris['sepal_width_new'] = iris['sepal_width'] /  3.057333
+
 iris.head()
+#this is different from a zscore because we are not subtracting by mean, we are dividing by the mean,
+#and we do not use standard deviation. You would make a new function that is x - mean / standard deviation 
+#to make this a zscore. Since the flowers have different means, it will change the values of 
+#the zscore/score divided by mean if species is factored in.
+
 #5. Create a new column named "petal_area" which is equal to the length
 #   times the width.  Note that this isn't really the area of the petal, since
 #   petals presumably aren't rectangles.
@@ -71,4 +80,4 @@ iris['petal_area'] = iris['petal_length']* iris['petal_width']
 #   SettingWithCopyWarning message?  Modify your copying to do away with the 
 #   warning.  Hint: You can create this with apply, or with map if you also
 #   create a global variable holding the mean.
-
+virginica['sepal_mean_comp']=virginica['sepal_length'].apply(lambda x: 1 if x > virginica['sepal_length'].mean() else 0)
