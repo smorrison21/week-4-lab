@@ -43,3 +43,5 @@ df_mexico = df.loc[[2014, 2015, 2016, 2017], [c for c in df.columns if c.endswit
 #   the new values will be NaN for the first year.
 df_mexico['gdp_delta'] = df_mexico['gdp_mexico'].diff()
 df_mexico
+
+
